@@ -4,8 +4,9 @@
 
 	<style type="text/css">
 		body {
-			background: #222;
+			background: #291800;
 			color: #EEE;
+			background-size: 100% 100%;
 		}
 
 		#bender {
@@ -22,9 +23,15 @@
 	  <source src="conga.mp3" type="audio/mpeg">
 	</audio>
 
-	<div>
+	<noscript>
 		<img id='bender' src="http://i.imgur.com/yzRdSi4.gif">
-	</div>
+	</noscript>
+
+	<script type="text/javascript">
+		setTimeout(function() {
+			document.body.style.backgroundImage = "url('http://i.imgur.com/yzRdSi4.gif')";
+		},1650);
+	</script>
 
 	<!-- Google Analytics -->
 	<script>
@@ -35,7 +42,7 @@
 
 	  ga('create', 'UA-50594640-2', 'benditbender.com');
 	  ga('send', 'pageview');
-</script>
+	</script>
 
 </body>
 </html>

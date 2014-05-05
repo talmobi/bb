@@ -28,9 +28,40 @@
 	</noscript>
 
 	<script type="text/javascript">
+		var snds = [];
+		var last = 0;
+		var n = 1;
+
 		setTimeout(function() {
 			document.body.style.backgroundImage = "url('http://i.imgur.com/yzRdSi4.gif')";
-		},1650);
+			setTimeout(playRandom, 5000);
+		}, 2200);
+
+		setTimeout(function() {
+			snds[0].play(); // play OMG
+		}, 1300)
+
+		// load sound effects
+		snds.push( new Audio('omg.mp3') );
+		snds.push( new Audio('biob.mp3') );
+		snds.push( new Audio('wh.mp3') );
+		snds.push( new Audio('ib.mp3') );
+		snds.push( new Audio('bel.mp3') );
+		snds.push( new Audio('ty.mp3') );
+		snds.push( new Audio('sb.mp3') );
+		snds.push( new Audio('waigd.mp3') );
+
+		function playRandom() {
+			snds[n++].play();
+			last = n;
+			if (n < snds.length) {
+				setTimeout(playRandom, 5000 + 1500 * n);
+			} else {
+				// clear sounds
+				snds.length = 0;
+			}
+		}
+
 	</script>
 
 	<!-- Google Analytics -->

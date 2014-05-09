@@ -22,8 +22,11 @@
 </head>
 <body>
 
-	<audio autoplay='autoplay'>
-	  <source src="sfx/conga.mp3" type="audio/mpeg">
+	<audio id="start" autoplay='autoplay'>
+	  <source src="sfx/conga_start.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="next" loop>
+	  <source src="sfx/conga_next.mp3" type="audio/mpeg">
 	</audio>
 
 	<noscript>
@@ -35,22 +38,8 @@
 		var last = 0;
 		var n = 1;
 
-		var img = new Image();
-		img.onload = function() {
-			start();
-		}
-
-		function start() {
-			setTimeout(function() {
-					document.body.insertBefore(img, document.body.firstChild);
-				img.src = "http://i.imgur.com/yzRdSi4.gif";
-				setTimeout(playNext, 5000);
-			}, 2200);
-
-			setTimeout(function() {
-				snds[0].play(); // play OMG
-			}, 1300)
-		}
+		 var audioStart = document.getElementById('start');
+		 var audioNext = document.getElementById('next');
 
 		// load sound effects
 		snds.push( new Audio('sfx/omg.mp3') );
@@ -61,6 +50,27 @@
 		snds.push( new Audio('sfx/ty.mp3') );
 		snds.push( new Audio('sfx/sb.mp3') );
 		snds.push( new Audio('sfx/waigd.mp3') );
+
+		var img = new Image();
+		img.onload = function() {
+			start();
+		}
+		img.src = "http://i.imgur.com/yzRdSi4.gif";
+
+		audioStart.addEventListener('ended', function() {
+			 audioNext.play();
+		})
+
+		function start() {
+			setTimeout(function() {
+					document.body.insertBefore(img, document.body.firstChild);
+				setTimeout(playNext, 5000);
+			}, 2200);
+
+			setTimeout(function() {
+				snds[0].play(); // play OMG
+			}, 1300)
+		}
 
 		function playNext() {
 			snds[n++].play();

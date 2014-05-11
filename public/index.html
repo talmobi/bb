@@ -24,9 +24,11 @@
 
 	<audio id="start" autoplay='autoplay'>
 	  <source src="sfx/conga_start.mp3" type="audio/mpeg">
+	  <source src="sfx/conga_start.ogg" type="audio/mpeg">
 	</audio>
 	<audio id="next" loop>
 	  <source src="sfx/conga_next.mp3" type="audio/mpeg">
+	  <source src="sfx/conga_next.ogg" type="audio/mpeg">
 	</audio>
 
 	<noscript>
@@ -42,8 +44,8 @@
 		 var audioNext = document.getElementById('next');
 
 		// load sound effects
-		snds.push( new Audio('sfx/omg.mp3') );
-		snds.push( new Audio('sfx/biob.mp3') );
+		snds.push( new Audio('sfx/omg.mp3', 'sfx/omg.ogg') );
+		snds.push( new Audio('sfx/biob.mp3', 'sfx/biob.ogg') );
 		snds.push( new Audio('sfx/wh.mp3') );
 		snds.push( new Audio('sfx/ib.mp3') );
 		snds.push( new Audio('sfx/bel.mp3') );
